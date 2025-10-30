@@ -2,6 +2,8 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent; /* Rimuove l'highlight al tap su mobile */
+            -webkit-touch-callout: none; /* Rimuove il menu contestuale su iOS */
         }
 
         :root {
