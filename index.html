@@ -11,7 +11,7 @@
     <!-- Navigation -->
     <nav id="navbar">
         <div class="nav-container">
-            <div class="logo">SYMB<span>LUX</span></div>
+            <a href="index.html" class="logo" style="text-decoration: none;">SYMB<span>LUX</span></a>
             <ul class="nav-links" id="navLinks">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">Chi Siamo</a></li>
@@ -250,6 +250,13 @@
         </div>
     </section>
 
+    <!-- Back to top button -->
+    <a href="#" class="back-to-top" aria-label="Torna all'inizio della pagina" role="button">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M18 15l-6-6-6 6"/>
+        </svg>
+    </a>
+
     <!-- Footer -->
     <footer>
         <div class="footer-content">
@@ -324,6 +331,32 @@
             } else {
                 alert('Per favore, compila tutti i campi del form.');
             }
+        });
+
+        // Back to top button
+        const backToTop = document.querySelector('.back-to-top');
+        let lastScrollPosition = 0;
+        const scrollThreshold = 400; // Il bottone appare dopo 400px di scroll
+
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll > scrollThreshold) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+
+            lastScrollPosition = currentScroll;
+        });
+
+        // Smooth scroll quando si clicca il bottone
+        backToTop.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
         });
     </script>
 </body>
