@@ -56,6 +56,39 @@
             color: var(--gold);
         }
 
+        /* Logo immagine: ottimizzazione e fallback */
+        .logo__img {
+            display: block;
+            height: 60px; /* poco più grande su desktop */
+            width: auto;
+            max-width: 280px; /* leggermente più largo su desktop */
+            object-fit: contain;
+        }
+
+        /* Riduci logo su schermi medi */
+        @media (max-width: 968px) {
+            .logo__img {
+                height: 52px; /* leggero aumento rispetto a prima */
+                max-width: 210px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo__img {
+                height: 46px; /* piccolo aumento mobile */
+                max-width: 190px;
+            }
+        }
+
+        /* Mantieni fallback testuale nascosto ma accessibile per i non vedenti */
+        .logo--text-fallback {
+            position: absolute;
+            left: -9999px;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+        }
+
         .nav-links {
             display: flex;
             list-style: none;
